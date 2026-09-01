@@ -3,12 +3,6 @@ name: CI
 on: push
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: echo "Lint step running"
-
   test:
     needs: lint
     runs-on: ubuntu-latest
