@@ -2,16 +2,15 @@ name: CI
 
 on: push
 
-env:
-  APP_NAME: my-app
-
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    env:
-      NODE_ENV: production
+    strategy:
+      matrix:
+         node: ["18", "20", "22"]
     steps:
-     - name: show them
-       env:
-        GREETING: hello
-       run: echo "$APP_NAME $NODE_ENV $GREETING"
+     - uses: actions/checkout@v4
+     - uses: actions/setup-node@v4
+       with:
+        node-version: ${{ matrix.node }}
+     - run: node --version
