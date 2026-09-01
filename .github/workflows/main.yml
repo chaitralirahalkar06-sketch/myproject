@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NODE_ENV: production
-  steps:
-    - name: show them
-      env:
-         GREETING: hello
+    steps:
+     - name: show them
+       env:
+        GREETING: hello
        run: echo "$APP_NAME $NODE_ENV $GREETING"
